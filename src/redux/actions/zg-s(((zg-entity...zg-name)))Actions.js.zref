@@ -1,0 +1,59 @@
+import * as types from "./actionTypes";
+import * as zg-singularize(((zg-entity...zg-name)))Api from "../../api/zg-singularize(((zg-entity...zg-name)))Api";
+import { beginApiCall, apiCallError } from "./apiStatusActions";
+
+export function loadzg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))Success([[[zg-entity...zg-name]]]) {
+  return { type: types.LOAD_zg-upper(((zg-entity...zg-name)))_SUCCESS, [[[zg-entity...zg-name]]] };
+}
+
+export function createzg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))Success(zg-singularize(((zg-entity...zg-name)))) {
+  return { type: types.CREATE_zg-upper(((zg-singularize(((zg-entity...zg-name))))))_SUCCESS, zg-singularize(((zg-entity...zg-name))) };
+}
+
+export function updatezg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))Success(zg-singularize(((zg-entity...zg-name)))) {
+  return { type: types.UPDATE_zg-upper(((zg-singularize(((zg-entity...zg-name))))))_SUCCESS, zg-singularize(((zg-entity...zg-name))) };
+}
+
+export function deletezg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))Optimistic(zg-singularize(((zg-entity...zg-name)))) {
+  return { type: types.DELETE_zg-upper(((zg-singularize(((zg-entity...zg-name))))))_OPTIMISTIC, zg-singularize(((zg-entity...zg-name))) };
+}
+
+export function loadzg-upperFirstCase(((zg-entity...zg-name)))() {
+  return function (dispatch) {
+    dispatch(beginApiCall());
+    return zg-singularize(((zg-entity...zg-name)))Api
+      .getzg-upperFirstCase(((zg-entity...zg-name)))()
+      .then(zg-singularize(((zg-entity...zg-name))) => {
+        dispatch(loadzg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))Success(zg-singularize(((zg-entity...zg-name)))));
+      })
+      .catch(error => {
+        dispatch(apiCallError(error));
+        throw error;
+      });
+  };
+}
+
+export function savezg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))(zg-singularize(((zg-entity...zg-name)))) {
+  //eslint-disable-next-line no-unused-vars
+  return function (dispatch, getState) {
+    dispatch(beginApiCall());
+    return zg-singularize(((zg-entity...zg-name)))Api
+      .savezg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))(zg-singularize(((zg-entity...zg-name))))
+      .then(savedzg-upperFirstCase(((zg-singularize(((zg-entity...zg-name)))))) => {
+        zg-singularize(((zg-entity...zg-name))).id
+          ? dispatch(updatezg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))Success(savedzg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))))
+          : dispatch(createzg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))Success(savedzg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))));
+      })
+      .catch(error => {
+        dispatch(apiCallError(error));
+        throw error;
+      });
+  };
+}
+
+export function deletezg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))(zg-singularize(((zg-entity...zg-name)))) {
+  return function (dispatch) {
+    dispatch(deletezg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))Optimistic(zg-singularize(((zg-entity...zg-name)))));
+    return zg-singularize(((zg-entity...zg-name)))Api.deletezg-upperFirstCase(((zg-singularize(((zg-entity...zg-name))))))(zg-singularize(((zg-entity...zg-name))).id);
+  };
+}

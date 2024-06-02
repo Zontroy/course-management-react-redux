@@ -1,0 +1,8 @@
+export default {
+  courses: [],
+  authors: [],
+  zg-for(((zg-item:::[[[zg-entities]]]))){{{
+  [[[zg-item...zg-name]]]: [],}}}
+  
+  apiCallsInProgress: 0
+};

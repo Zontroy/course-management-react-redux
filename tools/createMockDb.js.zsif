@@ -1,0 +1,11 @@
+const fs = require("fs");
+const path = require("path");
+const mockData = require("./mockData");
+
+const { courses, authorszg-for(((zg-item:::[[[zg-entities]]]))){{{,[[[zg-item...zg-name]]]}}} } = mockData;
+const data = JSON.stringify({ courses, authorszg-for(((zg-item:::[[[zg-entities]]]))){{{,[[[zg-item...zg-name]]]}}} });
+const filePath = path.join(__dirname, "db.json");
+
+fs.writeFile(filePath, data, function(err) {
+  err ? console.log(err) : console.log("Mock DB created.");
+});

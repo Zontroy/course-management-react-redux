@@ -23,7 +23,16 @@
       {
         "TokenType": "Base Entity",
         "RegularExpression": ""
+      },
+      {
+        "TokenType": "Primary Key",
+        "RegularExpression": "id"
+      },
+      {
+        "TokenType": "Foreign Key",
+        "RegularExpression": "(?<fieldName>[^\\s]+)Id"
       }
+      
     ]
   },
   "ConversionLanguage": {

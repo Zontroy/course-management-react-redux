@@ -36,5 +36,21 @@
       "id": 3,
       "name": "Suchitra Rajput"
     }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "name": "John Carter",
+      "slug": "john-carter",
+      "year": 2024
+    },
+    {
+      "id": 2,
+      "courseId": 2,
+      "name": "John Wick",
+      "slug": "john-wick",
+      "year": 2024
+    }
   ]
 }

@@ -1,0 +1,50 @@
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
+const zg-ufc(((zg-s(((zg-entity...zg-name))))))List = ({ [[[zg-entity...zg-name]]], onDeleteClick }) => (
+  <table className="table">
+    <thead>
+      <tr>
+        <th />
+        zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+        <th> zg-ufc(((zg-s(((zg-fkField...zg-referencedEntity...zg-name)))))) </th>}}}
+        zg-for(((zg-nonKeyField:::[[[zg-entity...zg-nonKeyFields]]]))){{{
+        <th> zg-ufc(((zg-nonKeyField...zg-name))) </th>}}}
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      {[[[zg-entity...zg-name]]].map(zg-singularize(((zg-entity...zg-name))) => {
+        return (
+          <tr key={zg-singularize(((zg-entity...zg-name))).id}>
+            <td>
+              <Link to={"/zg-singularize(((zg-entity...zg-name)))/" + zg-singularize(((zg-entity...zg-name))).slug}>{zg-singularize(((zg-entity...zg-name))).title}</Link>
+            </td>
+            zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+            <td>{zg-singularize(((zg-entity...zg-name))).zg-s(((zg-fkField...zg-referencedEntity...zg-name)))Name} </td>}}}
+            zg-for(((zg-nonKeyField:::[[[zg-entity...zg-nonKeyFields]]]))){{{
+            <td>{zg-singularize(((zg-entity...zg-name))).[[[zg-nonKeyField...zg-name]]]} </td>}}}
+            <td>
+              {" "}
+              <button
+                className="btn btn-outline-danger"
+                onClick={() => onDeleteClick(zg-singularize(((zg-entity...zg-name))))}
+              >
+                {" "}
+                Delete{" "}
+              </button>{" "}
+            </td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+);
+
+zg-ufc(((zg-s(((zg-entity...zg-name))))))List.propTypes = {
+  [[[zg-entity...zg-name]]]: PropTypes.array.isRequired,
+  onDeleteClick: PropTypes.func.isRequired
+};
+
+export default zg-ufc(((zg-s(((zg-entity...zg-name))))))List;

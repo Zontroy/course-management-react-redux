@@ -1,0 +1,17 @@
+export const CREATE_COURSE = "CREATE_COURSE";
+export const LOAD_COURSES_SUCCESS = "LOAD_COURSES_SUCCESS";
+export const LOAD_AUTHORS_SUCCESS = "LOAD_AUTHORS_SUCCESS";
+export const CREATE_COURSE_SUCCESS = "CREATE_COURSE_SUCCESS";
+export const UPDATE_COURSE_SUCCESS = "UPDATE_COURSE_SUCCESS";
+
+zg-for(((zg-item:::[[[zg-entities]]]))){{{
+export const CREATE_zg-upper(((zg-singularize(((zg-item...zg-name)))))) = "CREATE_zg-upper(((zg-singularize(((zg-item...zg-name))))))";
+export const LOAD_zg-upper(((zg-item...zg-name)))_SUCCESS = "LOAD_zg-upper(((zg-item...zg-name)))_SUCCESS";
+export const CREATE_zg-upper(((zg-singularize(((zg-item...zg-name))))))_SUCCESS = "CREATE_zg-upper(((zg-singularize(((zg-item...zg-name))))))_SUCCESS";
+export const UPDATE_zg-upper(((zg-singularize(((zg-item...zg-name))))))_SUCCESS = "UPDATE_zg-upper(((zg-singularize(((zg-item...zg-name))))))_SUCCESS";
+export const DELETE_zg-upper(((zg-singularize(((zg-item...zg-name))))))_OPTIMISTIC = "DELETE_zg-upper(((zg-singularize(((zg-item...zg-name))))))_OPTIMISTIC";
+}}}
+
+export const BEGIN_API_CALL = "BEGIN_API_CALL";
+export const API_CALL_ERROR = "API_CALL_ERROR";
+export const DELETE_COURSE_OPTIMISTIC = "DELETE_COURSE_OPTIMISTIC";

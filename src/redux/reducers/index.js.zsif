@@ -1,0 +1,15 @@
+import { combineReducers } from "redux";
+import courses from "./courseReducer";
+import authors from "./authorReducer";
+zg-for(((zg-item:::[[[zg-entities]]]))){{{
+import [[[zg-item...zg-name]]] from "./zg-singularize(((zg-item...zg-name)))Reducer";}}}
+import apiCallsInProgress from "./apiStatusReducer";
+
+const rootReducer = combineReducers({
+  courses,
+  authors,zg-for(((zg-item:::[[[zg-entities]]]))){{{
+  [[[zg-item...zg-name]]],}}}
+  apiCallsInProgress
+});
+
+export default rootReducer;

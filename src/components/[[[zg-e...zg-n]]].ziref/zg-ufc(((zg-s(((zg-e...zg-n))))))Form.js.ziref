@@ -1,0 +1,67 @@
+import React from "react";
+import PropTypes from "prop-types";
+import TextInput from "../common/TextInput";
+import SelectInput from "../common/SelectInput";
+
+const zg-ufc(((zg-s(((zg-entity...zg-name))))))Form = ({
+  zg-s(((zg-entity...zg-name))),
+  zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+  [[[zg-fkField...zg-referencedEntity...zg-name]]],}}}
+  onSave,
+  onChange,
+  saving = false,
+  errors = {}
+}) => {
+  return (
+    <form onSubmit={onSave}>
+      <h2> {zg-s(((zg-entity...zg-name))).id ? "Edit" : "Add"} zg-ufc(((zg-s(((zg-entity...zg-name)))))) </h2>
+      {errors.onSave && (
+        <div className="alert alert-danger" role="alert">
+          {errors.onSave}
+        </div>
+      )}{" "}
+       
+      zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+      <br />
+      <SelectInput
+        name="[[[zg-fkField...zg-name]]]"
+        label="zg-ufc(((zg-s(((zg-fkField...zg-referencedEntity...zg-name))))))"
+        value={zg-s(((zg-entity...zg-name))).[[[zg-fkField...zg-name]]] || ""}
+        defaultOption="Select zg-ufc(((zg-s(((zg-fkField...zg-referencedEntity...zg-name))))))"
+        options={[[[zg-fkField...zg-referencedEntity...zg-name]]].map(zg-s(((zg-fkField...zg-referencedEntity...zg-name))) => ({
+          value: zg-s(((zg-fkField...zg-referencedEntity...zg-name))).id,
+          text: zg-s(((zg-fkField...zg-referencedEntity...zg-name))).zg-estimateDisplayField(((zg-fkField...zg-referencedEntity)))
+        }))}
+        onChange={onChange}
+        error={errors.[[[zg-fkField...zg-name]]]}
+      />
+      }}}
+      zg-for(((zg-nonKeyField:::[[[zg-entity...zg-nonKeyFields]]]))){{{
+      <br />
+      <TextInput
+        name="[[[zg-nonKeyField...zg-name]]]"
+        label="zg-ufc(((zg-nonKeyField...zg-name)))"
+        value={zg-s(((zg-entity...zg-name))).[[[zg-nonKeyField...zg-name]]]}
+        onChange={onChange}
+        error={errors.[[[zg-nonKeyField...zg-name]]]}
+      />
+      }}}
+      <br />
+      <button type="submit" disabled={saving} className="btn btn-primary">
+        {saving ? "Savingzg-tripleDots((()))" : "Save"}
+      </button>
+    </form>
+  );
+};
+
+zg-ufc(((zg-s(((zg-entity...zg-name))))))Form.propTypes = {
+  zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+  [[[zg-fkField...zg-referencedEntity...zg-name]]]: PropTypes.array.isRequired,}}}
+  zg-s(((zg-entity...zg-name))): PropTypes.object.isRequired,
+  errors: PropTypes.object,
+  onSave: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  saving: PropTypes.bool
+};
+
+export default zg-ufc(((zg-s(((zg-entity...zg-name))))))Form;

@@ -1,0 +1,115 @@
+import React from "react";
+import { connect } from "react-redux";
+import * as zg-s(((zg-e...zg-n)))Actions from "../../redux/actions/zg-s(((zg-e...zg-n)))Actions";
+zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+import * as zg-s(((zg-fkField...zg-referencedEntity...zg-name)))Actions from "../../redux/actions/zg-s(((zg-fkField...zg-referencedEntity...zg-name)))Actions";}}}
+import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
+import zg-ufc(((zg-s(((zg-e...zg-n))))))List from "./zg-ufc(((zg-s(((zg-e...zg-n))))))List";
+import { Redirect } from "react-router-dom";
+import Spinner from "../common/Spinner";
+import { toast } from "react-toastify";
+
+class zg-ufc(((zg-e...zg-n)))Page extends React.Component {
+  state = {
+    redirectToAddzg-ufc(((zg-s(((zg-e...zg-n))))))Page: false
+  };
+// [[[zg-entity...zg-pkField...zg-name]]]
+  componentDidMount() {
+    const { 
+    [[[zg-e...zg-n]]], 
+    zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+    [[[zg-fkField...zg-referencedEntity...zg-name]]],}}}
+    actions } = this.props;
+
+    if ([[[zg-e...zg-n]]].length === 0) {
+      actions.loadzg-ufc(((zg-e...zg-n)))().catch(error => {
+        alert("Loading [[[zg-e...zg-n]]] failed : " + error);
+      });
+    }
+    zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+    if ([[[zg-fkField...zg-referencedEntity...zg-name]]].length === 0) {
+      actions.loadzg-ufc(((zg-fkField...zg-referencedEntity...zg-name)))().catch(error => {
+        alert("Loading [[[zg-fkField...zg-referencedEntity...zg-name]]] failed : " + error);
+      });
+    } 
+    }}}
+  }
+
+  handleDeletezg-ufc(((zg-s(((zg-e...zg-n)))))) = async zg-s(((zg-e...zg-n))) => {
+    toast.success("zg-ufc(((zg-s(((zg-e...zg-n)))))) deleted");
+    try {
+      await this.props.actions.deletezg-ufc(((zg-s(((zg-e...zg-n))))))(zg-s(((zg-e...zg-n))))
+    } catch (error) {
+      toast.error("Delete failed. " + error.message, { autoClose: false });
+    }
+  };
+  render() {
+    return (
+      <div>
+        {this.state.redirectToAddzg-ufc(((zg-s(((zg-e...zg-n))))))Page && <Redirect to="/zg-s(((zg-e...zg-n)))" />}
+        <h2> zg-ufc(((zg-e...zg-n))) </h2>
+        {this.props.loading ? (
+          <Spinner />
+        ) : (
+            <div>
+              <button
+                style={{ marginBottom: 20 }}
+                className="btn btn-primary add-course"
+                onClick={() => this.setState({ redirectToAddzg-ufc(((zg-s(((zg-e...zg-n))))))Page: true })}
+              >
+                Add zg-ufc(((zg-s(((zg-e...zg-n))))))
+            </button>
+              <zg-ufc(((zg-s(((zg-e...zg-n))))))List
+                onDeleteClick={this.handleDeletezg-ufc(((zg-s(((zg-e...zg-n))))))}
+                [[[zg-e...zg-n]]]={this.props.[[[zg-e...zg-n]]]}
+              />
+            </div>
+          )}
+      </div>
+    );
+  }
+}
+
+zg-ufc(((zg-e...zg-n)))Page.propTypes = {
+  zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+  [[[zg-fkField...zg-referencedEntity...zg-name]]]: PropTypes.array.isRequired,}}}
+  [[[zg-e...zg-n]]]: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    [[[zg-e...zg-n]]]:
+    zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+    state.[[[zg-fkField...zg-referencedEntity...zg-name]]].length === 0
+      ? []
+      :}}} state.[[[zg-e...zg-n]]].length === 0
+        ? []
+        : state.[[[zg-e...zg-n]]].map(zg-s(((zg-e...zg-n))) => {
+          return {
+            zg-tripleDots((()))zg-s(((zg-e...zg-n))),
+            zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+            zg-s(((zg-fkField...zg-referencedEntity...zg-name)))Name: state.[[[zg-fkField...zg-referencedEntity...zg-name]]].find(a => a.id === zg-s(((zg-e...zg-n))).[[[zg-fkField...zg-name]]])
+              .zg-estimateDisplayField((([[[zg-fkField...zg-referencedEntity]]])))}}}
+          };
+        }),
+    zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+    [[[zg-fkField...zg-referencedEntity...zg-name]]]: state.[[[zg-fkField...zg-referencedEntity...zg-name]]],}}}
+    loading: state.apiCallsInProgress > 0
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      loadzg-ufc(((zg-e...zg-n))): bindActionCreators(zg-s(((zg-e...zg-n)))Actions.loadzg-ufc(((zg-e...zg-n))), dispatch),
+      zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+      loadzg-ufc(((zg-fkField...zg-referencedEntity...zg-name))): bindActionCreators(zg-s(((zg-fkField...zg-referencedEntity...zg-name)))Actions.loadzg-ufc(((zg-fkField...zg-referencedEntity...zg-name))), dispatch),}}}
+      deletezg-ufc(((zg-s(((zg-e...zg-n)))))): bindActionCreators(zg-s(((zg-e...zg-n)))Actions.deletezg-ufc(((zg-s(((zg-e...zg-n)))))), dispatch)
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(zg-ufc(((zg-e...zg-n)))Page);

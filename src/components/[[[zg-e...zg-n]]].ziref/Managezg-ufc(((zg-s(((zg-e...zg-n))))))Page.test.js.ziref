@@ -1,0 +1,35 @@
+import React from "react";
+import { mount } from "enzyme";
+zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+import { [[[zg-fkField...zg-referencedEntity...zg-name]]] } from "../../../tools/data/[[[zg-fkField...zg-referencedEntity...zg-name]]]";}}}
+import { [[[zg-e...zg-n]]] } from "../../../tools/data/[[[zg-e...zg-n]]]";
+import { newzg-ufc(((zg-s(((zg-e...zg-n)))))) } from "../../../tools/mockData";
+import { Managezg-ufc(((zg-s(((zg-e...zg-n))))))Page } from "./Managezg-ufc(((zg-s(((zg-e...zg-n))))))Page";
+
+function render(args) {
+    const defaultProps = {
+        zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+        [[[zg-fkField...zg-referencedEntity...zg-name]]],}}}
+        [[[zg-e...zg-n]]],
+        // Passed from React Router in real app, so just stubbing in for test.
+        // Could also choose to use MemoryRouter as shown in Header.test.js,
+        // or even wrap with React Router, depending on whether I need to test React Router relate behaviour.
+        history: {},
+        savezg-ufc(((zg-s(((zg-e...zg-n)))))): jest.fn(),
+        zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+        loadzg-ufc(((zg-fkField...zg-referencedEntity...zg-name))): jest.fn(),}}}
+        loadzg-ufc(((zg-e...zg-n))): jest.fn(),
+        zg-s(((zg-e...zg-n))): newzg-ufc(((zg-s(((zg-e...zg-n)))))),
+        match: {}
+    };
+
+    const props = { ...defaultProps, ...args };
+    return mount(<Managezg-ufc(((zg-s(((zg-e...zg-n))))))Page {...props} />);
+}
+
+it("Sets error when attempting to save an empty title field", () => {
+    const wrapper = render();
+    wrapper.find("form").simulate("submit");
+    const error = wrapper.find(".alert").first();
+    expect(error.text()).toBe("Title is required.");
+});

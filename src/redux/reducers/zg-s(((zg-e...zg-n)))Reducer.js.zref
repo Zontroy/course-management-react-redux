@@ -1,0 +1,19 @@
+import * as types from "../actions/actionTypes";
+import initialState from "./initialState";
+
+export default function zg-s(((zg-e...zg-n)))Reducer(state = initialState.[[[zg-e...zg-n]]], action) {
+  switch (action.type) {
+    case types.CREATE_zg-u(((zg-s(((zg-e...zg-n))))))_SUCCESS:
+      return [zg-tripleDots((()))state, { zg-tripleDots((()))action.zg-s(((zg-e...zg-n))) }];
+    case types.LOAD_zg-u(((zg-e...zg-n)))_SUCCESS:
+      return action.[[[zg-e...zg-n]]];
+    case types.UPDATE_zg-u(((zg-s(((zg-e...zg-n))))))_SUCCESS:
+      return state.map(
+        zg-s(((zg-e...zg-n))) => (zg-s(((zg-e...zg-n))).id === action.zg-s(((zg-e...zg-n))).id ? action.zg-s(((zg-e...zg-n))) : zg-s(((zg-e...zg-n))))
+      );
+    case types.DELETE_zg-u(((zg-s(((zg-e...zg-n))))))_OPTIMISTIC:
+      return state.filter(zg-s(((zg-e...zg-n))) => zg-s(((zg-e...zg-n))).id !== action.zg-s(((zg-e...zg-n))).id);
+    default:
+      return state;
+  }
+}

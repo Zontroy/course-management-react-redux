@@ -1,0 +1,131 @@
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { loadzg-ufc(((zg-entity...zg-name))), savezg-ufc(((zg-s(((zg-entity...zg-name)))))) } from "../../redux/actions/zg-s(((zg-entity...zg-name)))Actions";
+zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+import { loadzg-ufc(((zg-fkField...zg-referencedEntity...zg-name))) } from "../../redux/actions/zg-s(((zg-fkField...zg-referencedEntity...zg-name)))Actions";}}}
+import PropTypes from "prop-types";
+import zg-ufc(((zg-s(((zg-entity...zg-name))))))Form from "./zg-ufc(((zg-s(((zg-entity...zg-name))))))Form";
+import { newzg-ufc(((zg-s(((zg-entity...zg-name)))))) } from "../../../tools/mockData";
+import Spinner from "../common/Spinner";
+import { toast } from "react-toastify";
+
+export function Managezg-ufc(((zg-s(((zg-entity...zg-name))))))Page({
+  [[[zg-entity...zg-name]]],
+  zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+  [[[zg-fkField...zg-referencedEntity...zg-name]]],
+  loadzg-ufc(((zg-fkField...zg-referencedEntity...zg-name))),}}}
+  loadzg-ufc(((zg-entity...zg-name))),
+  savezg-ufc(((zg-s(((zg-entity...zg-name)))))),
+  history,
+  zg-tripleDots((()))props
+}) {
+  const [zg-s(((zg-entity...zg-name))), setzg-ufc(((zg-s(((zg-entity...zg-name))))))] = useState({ zg-tripleDots((()))props.zg-s(((zg-entity...zg-name))) });
+  const [errors, setErrors] = useState({});
+  const [saving, setSaving] = useState(false);
+  useEffect(
+    () => {
+      if ([[[zg-entity...zg-name]]].length === 0) {
+        loadzg-ufc(((zg-entity...zg-name)))().catch(error => {
+          alert("Loading [[[zg-entity...zg-name]]] failed : " + error);
+        });
+      } else {
+        setzg-ufc(((zg-s(((zg-entity...zg-name))))))({ zg-tripleDots((()))props.zg-s(((zg-entity...zg-name))) });
+      }
+      zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+      if ([[[zg-fkField...zg-referencedEntity...zg-name]]].length === 0) {
+        loadzg-ufc(((zg-fkField...zg-referencedEntity...zg-name))).catch(error => {
+          alert("Loading [[[zg-fkField...zg-referencedEntity...zg-name]]] failed : " + error);
+        });
+      }
+      }}}
+    },
+    [props.zg-s(((zg-entity...zg-name)))]
+  );
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    console.log("Hii..{} : {}", name, value);
+    setzg-ufc(((zg-s(((zg-entity...zg-name))))))(prevzg-ufc(((zg-s(((zg-entity...zg-name)))))) => ({
+      zg-tripleDots((()))prevzg-ufc(((zg-s(((zg-entity...zg-name)))))),
+      zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+      [name]: name === "[[[zg-fkField...zg-name]]]" ? parseInt(value, 10) : value}}}
+    }));
+  }
+
+  function formIsValid() {
+    const { 
+    zg-for(((zg-nonKeyField:::[[[zg-entity...zg-nonKeyFields]]]))){{{
+    [[[zg-nonKeyField...zg-name]]], }}}
+    } = zg-s(((zg-entity...zg-name)));
+    const errors = {};
+    zg-for(((zg-nonKeyField:::[[[zg-entity...zg-nonKeyFields]]]))){{{
+    if (![[[zg-nonKeyField...zg-name]]]) errors.[[[zg-nonKeyField...zg-name]]] = "zg-ufc(((zg-nonKeyField...zg-name))) is required.";}}}
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  }
+
+  function handleSave(event) {
+    event.preventDefault();
+    if (!formIsValid()) return;
+    setSaving(true);
+    savezg-ufc(((zg-s(((zg-entity...zg-name))))))(zg-s(((zg-entity...zg-name))))
+      .then(() => {
+        toast.success("zg-ufc(((zg-s(((zg-entity...zg-name)))))) saved");
+        history.push("/[[[zg-entity...zg-name]]]");
+      })
+      .catch(error => {
+        setSaving(false);
+        setErrors({ onSave: error.message });
+      });
+  }
+
+  return zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{[[[zg-fkField...zg-referencedEntity...zg-name]]].length === 0 || }}}[[[zg-entity...zg-name]]].length === 0 ? (
+    <Spinner />
+  ) : (
+      <zg-ufc(((zg-s(((zg-entity...zg-name))))))Form
+        zg-s(((zg-entity...zg-name)))={zg-s(((zg-entity...zg-name)))}
+        errors={errors}
+        zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+        [[[zg-fkField...zg-referencedEntity...zg-name]]]={[[[zg-fkField...zg-referencedEntity...zg-name]]]}}}}
+        onChange={handleChange}
+        onSave={handleSave}
+        saving={saving}
+      />
+    );
+}
+
+Managezg-ufc(((zg-s(((zg-entity...zg-name))))))Page.propTypes = {
+  zg-s(((zg-entity...zg-name))): PropTypes.object.isRequired,
+  zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+  [[[zg-fkField...zg-referencedEntity...zg-name]]]: PropTypes.array.isRequired,}}}
+  [[[zg-entity...zg-name]]]: PropTypes.array.isRequired,
+  loadzg-ufc(((zg-entity...zg-name))): PropTypes.func.isRequired,
+  zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+  loadzg-ufc(((zg-fkField...zg-referencedEntity...zg-name))): PropTypes.func.isRequired,}}}
+  savezg-ufc(((zg-s(((zg-entity...zg-name)))))): PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
+};
+
+export function getzg-ufc(((zg-s(((zg-entity...zg-name))))))BySlug([[[zg-entity...zg-name]]], slug) {
+  return [[[zg-entity...zg-name]]].find(zg-s(((zg-entity...zg-name))) => zg-s(((zg-entity...zg-name))).slug === slug) || null;
+}
+
+function mapStateToProps(state, ownProps) {
+  const slug = ownProps.match.params.slug;
+  const zg-s(((zg-entity...zg-name))) = slug ? getzg-ufc(((zg-s(((zg-entity...zg-name))))))BySlug(state.[[[zg-entity...zg-name]]], slug) : newzg-ufc(((zg-s(((zg-entity...zg-name))))));
+  return {
+    zg-s(((zg-entity...zg-name))),
+    [[[zg-entity...zg-name]]]: state.[[[zg-entity...zg-name]]],
+    zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+    [[[zg-fkField...zg-referencedEntity...zg-name]]]: state.[[[zg-fkField...zg-referencedEntity...zg-name]]]}}}
+  };
+}
+
+const mapDispatchToProps = {
+  loadzg-ufc(((zg-entity...zg-name))),
+  zg-for(((zg-fkField:::[[[zg-entity...zg-fkFields]]]))){{{
+  loadzg-ufc(((zg-fkField...zg-referencedEntity...zg-name))),}}}
+  savezg-ufc(((zg-s(((zg-entity...zg-name))))))
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Managezg-ufc(((zg-s(((zg-entity...zg-name))))))Page);
